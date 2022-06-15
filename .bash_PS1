@@ -3,7 +3,20 @@ RED="\[\e[38;5;196m\]"
 GREEN="\[\e[38;5;77m\]"
 BLUE="\[\e[38;5;4m\]"
 WHITE="\[\e[38;5;255m\]"
-GREY=
+GREY="\[\e[38;5;247m\]"
 RESTORE="\[\e[0m\]"
 
+PROMPT_DIRTRIM=3
 
+uid=$(id -u)
+
+host_="${GREEN}\h"
+dir_="${BLUE}\w"
+
+if [[ $uid == 0 ]]; then
+	user_="${RED}\u"
+	PS1="$user_ $host_${GREY}:$dir_${WHITE} # $RESTORE"
+else
+	user_="${YELLOW}\u"
+	PS1="$user_ $host_${GREY}:$dir_${WHITE} \$ $RESTORE"
+fi
