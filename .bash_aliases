@@ -1,5 +1,5 @@
 # Editor
-export EDITOR='vi'
+export EDITOR='vim'
 
 # system shortcuts
 alias c='clear -x'
