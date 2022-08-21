@@ -4,9 +4,10 @@ export EDITOR='vim'
 # system shortcuts
 alias c='clear -x'
 alias sudo='sudo '
-alias l="ls --color=auto"
-alias ll="ls -lFh"
-alias la="ls -AlFh"
+alias ls="ls --color=auto"
+alias l="ls -lh"
+alias ll="ls -lhA"
+alias la="ls -lhA"
 alias ldir='ls -dhlA .*/ */'
 alias cp="cp -rv"
 alias mkdir="mkdir -p -v"
@@ -20,9 +21,9 @@ alias mypath='echo -e ${PATH//:/\\n}'
 
 # networking
 alias ip='ip -c'
-alias myip="ip -br a | grep -v lo[[:space:]]"
-alias myroute="ip route | grep default | awk '{ print \$1, \"gateway\", \$3 }'"
-alias mymac="ip -o link | grep -v loopback | awk {'printf (\"%-11s \t %s \n\", \$2, \$17)'}"
+alias myip="ip -brief address | grep -Ev '(lo[[:space:]]|DOWN)'"
+alias myroute="ip route | grep default"
+alias mymac="ip -brief link"
 
 # show top 10 most used commands
 alias hist="history | awk '{cmd[\$2]++} END {for(elem in cmd) {print cmd[elem] \" \" elem}}' | sort -n -r | head -10"
