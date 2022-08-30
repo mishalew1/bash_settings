@@ -35,7 +35,7 @@ function cd() {
 		pwd
     else
 		builtin cd "$1"
-    	ls -lhA
+    	ls -lh
 	fi
 }
 
