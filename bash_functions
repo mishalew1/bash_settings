@@ -17,7 +17,7 @@ function cd() {
 		pwd
     else
 		builtin cd "$1"
-    	ls -lFh
+    	ls -lhA
 	fi
 }
 
@@ -28,7 +28,8 @@ function mkcd() {
 
 
 function backup_file() {
-	cp -i "$1"{,.bak};
+	DATE=$(date +%F)
+	cp -i "$1"{,.$DATE};
 }
 
 

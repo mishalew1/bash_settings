@@ -3,7 +3,12 @@
 # Print the 256 ANSI colors the terminal supports
 # Find your term settings by running "echo $TERM"
 
-echo -e "\n256-bit ANSI colors"
+cat <<- EOF
+    256-bit ANSI colors
+    Use like this:
+    echo -e '\e[38;5;213m' I love PINK 
+
+EOF
 
 for color in {0..255} ; do
         printf "\e[38;5;%sm  %3s  \e[0m" $color $color

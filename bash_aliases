@@ -9,8 +9,8 @@ alias l="ls -lh"
 alias ll="ls -lhA"
 alias la="ls -lhA"
 alias ldir='ls -dhlA .*/ */'
-alias cp="cp -rv"
-alias mkdir="mkdir -p -v"
+alias cp="cp -r"
+alias mkdir="mkdir -p "
 alias grep='grep --color=auto'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -28,24 +28,11 @@ alias mymac="ip -brief link"
 # show top 10 most used commands
 alias hist="history | awk '{cmd[\$2]++} END {for(elem in cmd) {print cmd[elem] \" \" elem}}' | sort -n -r | head -10"
 
-# show contents of the directory after changing to it
-function cd() {
-	if [ $# = 0 ]; then
-		builtin cd $HOME
-		pwd
-    else
-		builtin cd "$1"
-    	ls -lh
-	fi
-}
+# SystemD
+alias jctl='journalctl'
+alias rctl='resolvectl'
+alias sctl='systemctl'
 
-# find largest files example: Downloads $ find_largest_files
-function find_largest_files() {
-    du -h -x -s -- * | sort -r -h | head -20;
-}
-
-
-# grep (search) through your history for previous run commands:  hg vim
-function hg() {
-    history | grep "$1";
-}
+# ansible
+alias ap='ansible-playbook'
+alias alint='ansible-lint'
